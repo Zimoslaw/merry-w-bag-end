@@ -1,0 +1,116 @@
+(define
+    (problem p1)
+	(:domain merry-w-bag-end)
+	(:objects A B C D E F G H I - room
+        czerwony1 czerwony2
+        niebieski1 niebieski2 niebieski3 niebieski4 niebieski5
+        pomaranczowy1 pomaranczowy2
+        rozowy
+        zielony1 zielony2 zielony3 zielony4 - color
+        klocek1 klocek2 klocek3 klocek4 klocek5 klocek6 klocek7 klocek8 - puzzle
+        L1 L2 L3 L4 L5 L6 L7 L8 L9 - position
+    )
+	(:init
+        ;A
+		(room-has-color A zielony1)
+        (neighbor A B pomaranczowy1)
+        (neighbor A B pomaranczowy2)
+        (neighbor A C czerwony1)
+        (neighbor A C czerwony2)
+        ;B
+        (room-has-color B rozowy)
+        (neighbor B D pomaranczowy1)
+        (neighbor B D pomaranczowy2)
+        ;C
+        (room-has-color C pomaranczowy1)
+        (room-has-color C niebieski1)
+        (neighbor C A czerwony1)
+        (neighbor C A czerwony2)
+        (neighbor C E zielony1)
+        (neighbor C E zielony2)
+        (neighbor C E zielony3)
+        (neighbor C E zielony4)
+        ;D
+        (room-has-color D zielony2)
+        (room-has-color D czerwony1)
+        (neighbor D F zielony1)
+        (neighbor D F zielony2)
+        (neighbor D F zielony3)
+        (neighbor D F zielony4)
+        ;E
+        (room-has-color E niebieski2)
+        (room-has-color E zielony3)
+        (neighbor E C zielony1)
+        (neighbor E C zielony2)
+        (neighbor E C zielony3)
+        (neighbor E C zielony4)
+        (neighbor E F niebieski1)
+        (neighbor E F niebieski2)
+        (neighbor E F niebieski3)
+        (neighbor E F niebieski4)
+        (neighbor E F niebieski5)
+        (neighbor E H czerwony1)
+        (neighbor E H czerwony2)
+        ;F
+        (room-has-color F niebieski3)
+        (room-has-color F niebieski4)
+        (neighbor F D zielony1)
+        (neighbor F D zielony2)
+        (neighbor F D zielony3)
+        (neighbor F D zielony4)
+        (neighbor F E niebieski1)
+        (neighbor F E niebieski2)
+        (neighbor F E niebieski3)
+        (neighbor F E niebieski4)
+        (neighbor F E niebieski5)
+        (neighbor F G rozowy)
+        (neighbor F I niebieski1)
+        (neighbor F I niebieski2)
+        (neighbor F I niebieski3)
+        (neighbor F I niebieski4)
+        (neighbor F I niebieski5)
+        (merry-in-room F)
+        ;H
+        (room-has-color H zielony4)
+        (room-has-color H czerwony2)
+        (neighbor H E czerwony1)
+        (neighbor H E czerwony2)
+        (neighbor H I niebieski1)
+        (neighbor H I niebieski2)
+        (neighbor H I niebieski3)
+        (neighbor H I niebieski4)
+        (neighbor H I niebieski5)
+        ;I
+        (room-has-color I pomaranczowy2)
+        (room-has-color I niebieski5)
+        (neighbor I F niebieski1)
+        (neighbor I F niebieski2)
+        (neighbor I F niebieski3)
+        (neighbor I F niebieski4)
+        (neighbor I F niebieski5)
+        (neighbor I H niebieski1)
+        (neighbor I H niebieski2)
+        (neighbor I H niebieski3)
+        (neighbor I H niebieski4)
+        (neighbor I H niebieski5)
+
+        ;Puzzle
+        (at klocek5 L1) (next-to L1 L2) (next-to L1 L4)
+        (at klocek4 L2) (next-to L2 L1) (next-to L2 L3) (next-to L2 L5)
+        (at klocek1 L3) (next-to L3 L2) (next-to L3 L6)
+        (at klocek8 L4) (next-to L4 L1) (next-to L4 L5) (next-to L4 L7)
+        (empty L5) (next-to L5 L4) (next-to L5 L2) (next-to L5 L6) (next-to L5 L8)
+        (at klocek3 L6) (next-to L6 L3) (next-to L6 L5) (next-to L6 L9)
+        (at klocek7 L7) (next-to L7 L4) (next-to L7 L8)
+        (at klocek2 L8) (next-to L8 L7) (next-to L8 L5) (next-to L8 L9)
+        (at klocek6 L9) (next-to L9 L6) (next-to L9 L8)
+	)
+	(:goal 
+		(and
+            (at klocek1 L1) (at klocek2 L2) (at klocek3 L3)
+            (at klocek4 L4) (at klocek5 L5) (at klocek6 L6)
+            (at klocek7 L7) (at klocek8 L8) (empty L9)
+            (merry-in-room G)
+        )
+	)
+)
